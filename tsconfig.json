@@ -3,6 +3,12 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+     "types": [
+      "node",
+      "estree",
+      "json-schema",
+      "slice-ansi"
+    ],
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
@@ -12,7 +18,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
-    "declaration": false,
+    "declaration": false,    
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,

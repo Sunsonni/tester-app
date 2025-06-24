@@ -11,6 +11,7 @@ import { addIcons } from 'ionicons';
 import { playCircle, radio } from 'ionicons/icons';
 
 @Component({
+  standalone: true,
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss'],

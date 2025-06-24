@@ -1,15 +1,16 @@
 import { HttpErrorResponse } from '@angular/common/module.d-CnjH8Dlt';
 import { Component, inject } from '@angular/core';
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonSkeletonText, IonText, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonButton, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonSkeletonText, IonText, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { catchError, throwError } from 'rxjs';
 import { Artist, Image } from '../interfaces/interface';
 import { SpotifyApiService } from '../services/spotify-api.service';
 
 @Component({
+  standalone: true,
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonSkeletonText, IonCardSubtitle, IonCardContent, IonLabel, IonItem, IonIcon, IonText, IonCardHeader, IonCardTitle, IonCard, IonButton, IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [IonButton, IonSkeletonText, IonCardSubtitle, IonText, IonCardHeader, IonCardTitle, IonCard, IonHeader, IonToolbar, IonTitle, IonContent],
 })
 export class HomePage {
   public artist?: Artist;
@@ -24,9 +25,8 @@ export class HomePage {
     }
   }
 
-
   handleClick(){
-    this.showPunchline = !this.showPunchline;
+    console.log("testing buttons");
   }
 
   getAuthToken(){

@@ -13,7 +13,7 @@ export class PhotoService {
       resultType: CameraResultType.Uri,
       source: CameraSource.Camera,
       quality: 100
-    })
+    });
   }
 
 }
