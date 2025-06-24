@@ -12,11 +12,11 @@ import { playCircle, radio } from 'ionicons/icons';
 
 @Component({
   selector: 'app-tabs',
-  templateUrl: 'tabs.component.html',
-  styleUrls: ['tabs.component.scss'],
+  templateUrl: 'tabs.page.html',
+  styleUrls: ['tabs.page.scss'],
   imports: [IonRouterOutlet, IonIcon, IonTabBar, IonTabButton, IonTabs],
 })
-export class TabsComponent {
+export class TabsPage {
   constructor() {
     addIcons({ playCircle, radio });
   }

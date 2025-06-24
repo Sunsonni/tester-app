@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/module.d-CnjH8Dlt';
 import { Component, inject } from '@angular/core';
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonText, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonSkeletonText, IonText, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { catchError, throwError } from 'rxjs';
 import { Artist, Image } from '../interfaces/interface';
 import { SpotifyApiService } from '../services/spotify-api.service';
@@ -9,7 +9,7 @@ import { SpotifyApiService } from '../services/spotify-api.service';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonCardSubtitle, IonCardContent, IonLabel, IonItem, IonIcon, IonText, IonCardHeader, IonCardTitle, IonCard, IonButton, IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [IonSkeletonText, IonCardSubtitle, IonCardContent, IonLabel, IonItem, IonIcon, IonText, IonCardHeader, IonCardTitle, IonCard, IonButton, IonHeader, IonToolbar, IonTitle, IonContent],
 })
 export class HomePage {
   public artist?: Artist;
