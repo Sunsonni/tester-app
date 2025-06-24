@@ -1,0 +1,24 @@
+import { Component } from '@angular/core';
+import {
+  IonIcon,
+  IonRouterOutlet,
+  IonTabBar,
+  IonTabButton,
+  IonTabs
+} from '@ionic/angular/standalone';
+
+import { addIcons } from 'ionicons';
+import { playCircle, radio } from 'ionicons/icons';
+
+@Component({
+  selector: 'app-tabs',
+  templateUrl: 'tabs.component.html',
+  styleUrls: ['tabs.component.scss'],
+  imports: [IonRouterOutlet, IonIcon, IonTabBar, IonTabButton, IonTabs],
+})
+export class TabsComponent {
+  constructor() {
+    addIcons({ playCircle, radio });
+  }
+
+}

@@ -10,18 +10,19 @@
   <ion-card>
     <ion-card-header>
       <ion-card-title>{{artist?.name}}</ion-card-title>
-        @if(images) {
-          <img [src]="images[0].url"/>
+    </ion-card-header>
+    <div class="content">
+      @if(images) {
+          <img [src]="images[0].url" style="width: 300px;"/>
         }
         <ion-card-subtitle color="medium">#{{ artist?.popularity }} in the world</ion-card-subtitle>
         <ion-card-subtitle>{{ artist?.followers?.total }}</ion-card-subtitle>
         <ion-text>
         @for(i of artist?.genres; let idx = $index; track idx) {
             {{ i }}
+            <!-- @if(idx === artist?.genres.length) -->
           }
         </ion-text>
-      </ion-card-header>
-    
+    </div>
   </ion-card>
 </ion-content>
-ß
