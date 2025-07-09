@@ -9,7 +9,7 @@ import {
 } from '@ionic/angular/standalone';
 
 import { addIcons } from 'ionicons';
-import { playCircle, radio } from 'ionicons/icons';
+import { playCircle, search } from 'ionicons/icons';
 
 @Component({
   standalone: true,
@@ -20,7 +20,7 @@ import { playCircle, radio } from 'ionicons/icons';
 })
 export class TabsPage {
   constructor() {
-    addIcons({ playCircle, radio });
+    addIcons({ playCircle, search });
   }
 
 }

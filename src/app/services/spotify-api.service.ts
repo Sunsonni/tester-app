@@ -97,4 +97,26 @@ export class SpotifyApiService {
   );
   }
 
+  Search(searchTerm: string, token: string) {
+    const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      });
+
+    return this.http.get(`https://api.spotify.com/v1/search`, { headers }).pipe(
+    catchError((error: HttpErrorResponse) => {
+      if (error.status === 401) {
+        return this.AuthRequest().pipe(
+          switchMap((newToken) => {
+            this.token = newToken.access_token; 
+            const newHeaders = new HttpHeaders({
+              'Authorization': `Bearer ${this.token}`
+            });
+            return this.http.get<RootObject>(`https://api.spotify.com/v1/search`, { headers: newHeaders });
+          })
+        );
+      }
+      return throwError(() => error);
+    })
+  );
+  }
 }

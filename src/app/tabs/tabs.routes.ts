@@ -11,8 +11,8 @@ export const routes: Routes = [
             loadComponent: () => import('../artist/artist.page').then((m) => m.ArtistPage)
         },
         {
-            path: 'photo',
-            loadComponent: () => import('../photo/photo.page').then((m) => m.PhotoPage)
+            path: 'search',
+            loadComponent: () => import('../search/search.page').then((m) => m.SearchPage)
         },
         {
             path: '',
