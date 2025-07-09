@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {
+  IonContent,
   IonIcon,
   IonRouterOutlet,
   IonTabBar,
@@ -15,7 +16,7 @@ import { playCircle, radio } from 'ionicons/icons';
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss'],
-  imports: [IonRouterOutlet, IonIcon, IonTabBar, IonTabButton, IonTabs],
+  imports: [IonContent, IonRouterOutlet, IonIcon, IonTabBar, IonTabButton, IonTabs],
 })
 export class TabsPage {
   constructor() {

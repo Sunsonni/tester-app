@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { inject, Injectable } from '@angular/core';
 import { catchError, switchMap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Artist } from '../interfaces/interface';
+import { Artist, RootObject } from '../interfaces/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +30,7 @@ export class SpotifyApiService {
   GetArtist(id: string, token: string){
     const headers = new HttpHeaders({
     'Authorization': `Bearer ${token}`
-  });
+    });
 
   return this.http.get<Artist>(`https://api.spotify.com/v1/artists/${id}`, { headers }).pipe(
     catchError((error: HttpErrorResponse) => {
@@ -42,6 +42,53 @@ export class SpotifyApiService {
               'Authorization': `Bearer ${this.token}`
             });
             return this.http.get<Artist>(`https://api.spotify.com/v1/artists/${id}`, { headers: newHeaders });
+          })
+        );
+      }
+      return throwError(() => error);
+    })
+  );
+  }
+
+
+  GetAlbumsByArtistId (id: string, token: string) {
+    const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      });
+
+    return this.http.get<RootObject>(`https://api.spotify.com/v1/artists/${id}/albums`, { headers }).pipe(
+    catchError((error: HttpErrorResponse) => {
+      if (error.status === 401) {
+        return this.AuthRequest().pipe(
+          switchMap((newToken) => {
+            this.token = newToken.access_token; 
+            const newHeaders = new HttpHeaders({
+              'Authorization': `Bearer ${this.token}`
+            });
+            return this.http.get<RootObject>(`https://api.spotify.com/v1/artists/${id}/albums`, { headers: newHeaders });
+          })
+        );
+      }
+      return throwError(() => error);
+    })
+  );
+  }
+
+  GetRelatedArtists(id: string, token: string) {
+    const headers = new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      });
+
+    return this.http.get(`https://api.spotify.com/v1/artists/${id}/related-artists`, { headers }).pipe(
+    catchError((error: HttpErrorResponse) => {
+      if (error.status === 401) {
+        return this.AuthRequest().pipe(
+          switchMap((newToken) => {
+            this.token = newToken.access_token; 
+            const newHeaders = new HttpHeaders({
+              'Authorization': `Bearer ${this.token}`
+            });
+            return this.http.get<RootObject>(`https://api.spotify.com/v1/artists/${id}/related-artists`, { headers: newHeaders });
           })
         );
       }

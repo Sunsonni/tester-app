@@ -1,13 +1,15 @@
-<ion-tabs class="tabs">
-    <ion-router-outlet></ion-router-outlet>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home" routerLink="home">
-      <ion-icon name="play-circle"></ion-icon>
-      Home
-    </ion-tab-button>
-    <ion-tab-button tab="photo" routerLink="photo">
-      <ion-icon name="radio"></ion-icon>
-      Photo
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+<ion-content>
+  <ion-router-outlet></ion-router-outlet>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="artist" routerLink="artist">
+        <ion-icon name="play-circle"></ion-icon>
+        Home
+      </ion-tab-button>
+      <ion-tab-button tab="photo" routerLink="photo">
+        <ion-icon name="radio"></ion-icon>
+        Photo
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+      <ion-title>
+        {{artist?.name}} 
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-card>
+      <div class="content">
+        @if(artist?.images) {
+          <img [src]="images[0].url" style="width: 300px;"/>
+        } @else {
+          <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+        }
+        <ion-card-title>
+          <ion-label>
+            <div>#{{ artist?.popularity }} in the world</div>
+            <div>{{ artist?.followers?.total | number }} followers</div>  
+          </ion-label>
+        </ion-card-title>
+        <ion-title>
+         
+        </ion-title>
+        <ion-text>
+        @for(genre of artist?.genres; let idx = $index; track idx) {
+           <ion-chip><ion-label>{{ genre }}</ion-label></ion-chip>
+          }
+        </ion-text>
+    </div>
+  </ion-card>
+  @if(Items) {
+      @for(album of Items; let idx = $index; track idx) {
+        <ion-accordion-group>
+          <ion-accordion [value]="idx">
+            <ion-item slot="header" color="light">
+              <ion-label><pre>{{ album.name }}</pre></ion-label>
+            </ion-item>
+              <div class="ion-padding" slot="content">
+                <img [src]="album.images[0].url" style="width: 300px;" >
+              </div> 
+            <div class="ion-padding" slot="content">Release Date: {{ album.release_date }}</div>
+          </ion-accordion>
+        </ion-accordion-group>
+      }
+  }
+
+  
+</ion-content>
+
